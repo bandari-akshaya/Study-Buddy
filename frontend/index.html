@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Study Buddy</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                📚
+            </div>
+
+            <div>
+                <h2>AI Study Buddy</h2>
+                <p>Your Smart Learning Partner</p>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active" data-tab="chat">
+
+                <i class="fa-solid fa-comments"></i>
+
+                Chat
+
+            </button>
+
+            <button class="nav-btn" data-tab="quiz">
+
+                <i class="fa-solid fa-circle-question"></i>
+
+                Quiz
+
+            </button>
+
+            <button class="nav-btn" data-tab="notes">
+
+                <i class="fa-solid fa-book"></i>
+
+                Notes
+
+            </button>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <div class="tip-box">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <h4>Study Tip</h4>
+
+                <p>
+                    Learn a little every day.
+                    Consistency beats cramming!
+                </p>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <!-- Header -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>Welcome 👋</h1>
+
+                <p>
+                    Ask questions, generate quizzes and organize your study notes.
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= CHAT ================= -->
+
+        <section id="chat" class="tab active">
+
+            <div class="section-title">
+
+                <h2>
+                    <i class="fa-solid fa-robot"></i>
+                    AI Chat Assistant
+                </h2>
+
+                <p>
+                    Ask any academic question and receive AI-powered answers.
+                </p>
+
+            </div>
+
+
+            <div id="chat-log">
+
+                <div class="welcome-card">
+
+                    <div class="robot">
+
+                        🤖
+
+                    </div>
+
+                    <h2>Hello!</h2>
+
+                    <p>
+
+                        I'm your AI Study Buddy.
+
+                        I can help you with:
+
+                    </p>
+
+                    <ul>
+
+                        <li>Programming</li>
+
+                        <li>Mathematics</li>
+
+                        <li>Science</li>
+
+                        <li>Interview Questions</li>
+
+                        <li>Exam Preparation</li>
+
+                        <li>Assignments</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <form id="chat-form">
+
+                <div class="chat-input-box">
+
+                    <input
+                        type="text"
+                        id="chat-input"
+                        placeholder="Ask anything..."
+                        autocomplete="off"
+                        required>
+
+                    <button>
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+
+        <!-- ================= QUIZ ================= -->
+
+        <section id="quiz" class="tab">
+
+            <div class="section-title">
+
+                <h2>
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
+                    AI Quiz Generator
+
+                </h2>
+
+                <p>
+
+                    Test your knowledge instantly.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="quiz-top">
+
+                <form id="quiz-form">
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Quiz Topic
+
+                        </label>
+
+                        <input
+                            id="quiz-topic"
+                            type="text"
+                            placeholder="Example: Python">
+
+                    </div>
+
+
+
+                    <div class="input-group">
+
+                        <label>
+
+                            Questions
+
+                        </label>
+
+                        <input
+                            id="quiz-num"
+                            type="number"
+                            value="5"
+                            min="1"
+                            max="20">
+
+                    </div>
+
+
+
+                    <button class="primary-btn">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        Generate Quiz
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+
+            <div class="progress-area">
+
+                <div class="progress-bar">
+
+                    <div id="progress-fill"></div>
+
+                </div>
+
+                <span id="progress-text">
+
+                    0 / 0 Completed
+
+                </span>
+
+            </div>
+
+
+
+            <div id="quiz-output">
+
+            </div>
+
+
+
+            <div id="quiz-result">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= NOTES ================= -->
+
+        <section id="notes" class="tab">
+
+            <div class="section-title">
+
+                <h2>
+
+                    <i class="fa-solid fa-book-open"></i>
+
+                    Smart Notes
+
+                </h2>
+
+                <p>
+
+                    Save your notes and let AI summarize them.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="notes-controls">
+
+                <input
+                    type="text"
+                    id="search-notes"
+                    placeholder="🔍 Search Notes...">
+
+            </div>
+
+
+
+            <form id="notes-form">
+
+                <input
+                    id="note-title"
+                    placeholder="Title">
+
+                <textarea
+                    id="note-content"
+                    placeholder="Write or paste your notes..."
+                    required></textarea>
+
+
+
+                <div class="note-options">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="note-summarize"
+                            checked>
+
+                        Generate AI Summary
+
+                    </label>
+
+                    <button class="primary-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Note
+
+                    </button>
+
+                </div>
+
+            </form>
+
+
+
+            <div id="notes-list">
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- Loading Animation -->
+
+<div id="loader" class="loader hidden">
+
+    <div class="spinner"></div>
+
+    <p>AI is thinking...</p>
+
+</div>
+
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
